@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отбор в рабочую группу</title>
+    <style>
+        @font-face {
+            font-family: 'NEXT ART';
+            src: url('static/NEXT ART_Regular.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'NEXT ART';
+            src: url('static/NEXT ART_Bold.otf') format('opentype');
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: 'NEXT ART', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #1e1e2f;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Контейнер для видео */
+        .video-header {
+            width: 100%;
+            max-width: 800px;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+        }
+
+        .video-header video {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+
+        .container {
+            background: rgba(43, 43, 60, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-size: 14px;
+            font-weight: normal;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            background: #3b3b4f;
+            color: white;
+        }
+
+        textarea {
+            height: 100px;
+            resize: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
+            background: #4C74E5;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            color: white;
+            transition: background 0.3s;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #3a5fc4;
+        }
+
+        .footer {
+            width: 100%;
+            max-width: 500px;
+            background: rgba(37, 37, 66, 0.9);
+            padding: 10px;
+            text-align: center;
+            font-size: 14px;
+            border-radius: 8px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: auto;
+        }
+
+        .footer a {
+            color: #ff5e57;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            .video-header {
+                max-width: 100%;
+            }
+
+            .container, .footer {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Видеошапка -->
+    <div class="video-header">
+        <video autoplay muted loop>
+            <source src="static/vid.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+        </video>
+    </div>
+
+    <div class="container">
+        <label for="name">ФИО</label>
+        <input type="text" id="name" placeholder="Введите ваше ФИО" required>
+
+        <label for="phone">Номер телефона</label>
+        <input type="text" id="phone" placeholder="Введите ваш номер телефона" required>
+
+        <label for="age">Возраст</label>
+        <input type="number" id="age" placeholder="Введите возраст" required>
+
+        <label for="sex">Пол</label>
+        <select id="sex">
+            <option value="мужской">Мужской</option>
+            <option value="женский">Женский</option>
+            <option value="ламинат">Ламинат</option>
+            <option value="газон">Газон биг-ролл «Профи-спорт» 1,06х25м</option>
+        </select>
+
+        <label for="category">Отделение</label>
+        <select id="category">
+            <option value="би">БИ</option>
+            <option value="омэс">ОМЭС</option>
+            <option value="пи">ПИ</option>
+            <option value="онэ">ОНЭ</option>
+            <option value="онлайн">Отделение онлайн программ</option>
+            <option value="оэ">ОЭ</option>
+            <option value="школа">Школа IT-менеджмента</option>
+        </select>
+
+        <label for="job">Должность</label>
+        <select id="job">
+            <option value="декор">Декоратор</option>
+            <option value="никита">Никита Григорьев</option>
+            <option value="тех">Технический специалист</option>
+            <option value="ответ">Ответственный за организацию квиза</option>
+            <option value="внешка">Внешние коммуникации</option>
+            <option value="самый">Самая крутая должность на планете Земля</option>
+        </select>
+
+        <label for="motivation">Почему вы хотите в рабочую группу?</label>
+        <textarea id="motivation" placeholder="Опишите вашу мотивацию..." required></textarea>
+
+        <button onclick="submitForm()">Отправить</button>
+    </div>
+
+    <div class="footer">
+        &copy; 2025 BLBS | <a href="https://yandex.ru/maps/-/CHqfaTkA">Офис</a> | Контакты: <a href="https://steamcommunity.com/profiles/76561198957893544">+79*******</a>
+    </div>
+
+    <script>
+        function submitForm() {
+            const data = {
+                name: document.getElementById("name").value,
+                phone: document.getElementById("phone").value,
+                age: document.getElementById("age").value,
+                sex: document.getElementById("sex").value,
+                category: document.getElementById("category").value,
+                motivation: document.getElementById("motivation").value
+                job: document.getElementById("job").value,
+            };
+
+            fetch("http://127.0.0.1:8000/api/form", { 
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => alert("Форма отправлена!"))
+            .catch(error => alert("Ошибка отправки: " + error.message));
+        }
+    </script>
+
+</body>
+</html>
